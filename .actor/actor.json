@@ -1,0 +1,43 @@
+{
+  "actorSpecification": 1,
+  "name": "nexus-google-search-scraper",
+  "title": "Nexus Google Search Scraper",
+  "description": "Scrapes Google Search results including organic results, ads, and snippets using Playwright + Crawlee with SERP proxy.",
+  "version": "1.0.0",
+  "buildTag": "latest",
+  "input": "./INPUT_SCHEMA.json",
+  "dockerfile": "./Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Nexus Google Search Scraper Results",
+      "views": {
+        "overview": {
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "url",
+              "title",
+              "data"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "url": {
+                "label": "URL",
+                "format": "link"
+              },
+              "title": {
+                "label": "Title"
+              },
+              "data": {
+                "label": "Data"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
